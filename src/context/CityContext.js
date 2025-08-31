@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 const CityContext = createContext();
 
-export const Cities = (children) => {
+export const CityProvider = ({children}) => {
     const [city, setCity] = useState(null)
     const values = {city, setCity}
 
@@ -13,4 +13,4 @@ export const Cities = (children) => {
     );
 }
 
-export default Cities;
+export default CityContext;

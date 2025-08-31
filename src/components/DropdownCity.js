@@ -1,8 +1,8 @@
-import React , {useContext} from "react";
-import CityContext from "../context/CityContext"
+import  {useFormik} from "formik";
+import React, {useContext,} from "react";
+import CityContext from  "../context/CityContext"
 
-
-const CityData=()=>{
+function DropdownCity(){
     const cities = [ "Berlin", "Hamburg","München", "Köln", "Frankfurt am Main", "Stuttgart", "Düsseldorf", 
     "Leipzig", "Dortmund", "Essen", "Bremen", "Dresden", "Hannover", "Nürnberg", "Duisburg", "Bochum", "Wuppertal", "Bielefeld",
      "Bonn", "Münster", "Karlsruhe", "Mannheim", "Augsburg", "Wiesbaden", "Gelsenkirchen", "Mönchengladbach", "Braunschweig", 
@@ -13,19 +13,33 @@ const CityData=()=>{
      "Reutlingen", "Koblenz", "Bergisch Gladbach", "Remscheid", "Erlangen", "Moers", "Siegen", "Hildesheim", "Salzgitter", "Cottbus", 
      "Kaiserslautern", "Trier", "Jena", "Zwickau", "Gera" ];
 
-    const {city , setCity} = useContext(CityContext)
-    
-
+    const {city , setCity} = useContext (CityContext)
+    const formik = useFormik({
+        initialValues : {
+            city : "",
+        },
+        onSubmit : (values)=>{
+            setCity(values.city)
+        }
+    }) ;
     return(
-        <div>
-            <label htmlFor="element">
-                <select value={city} onChange={(e)=>setCity(e.target.value)}>
-                    {cities.map((element)=> <option key={element} value={element}>{element}</option>)}
-                </select>
-            </label>
+        <form onSubmit ={ formik.handleSubmit} className="dropdownCity" >
+            <label htmlFor="city">Wählen Sie eine Städt aus : </label>
+            <br />
+            <select name="city" 
+            value={formik.values.city} 
+            onChange = {formik.handleChange}
+            >
+                {cities.map((data)=>(<option key={data} value={data}>{data}</option>))}
+                
+            </select>
+            <br />
+            <br />
+            <button type="submit">Ergebnisse !</button>
             
 
-        </div>
+        </form>
     )
-}
-export default CityData;
+    }
+
+    export default DropdownCity;

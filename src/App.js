@@ -2,7 +2,8 @@ import './App.css';
 import axios from 'axios';
 import React, { useEffect,useState } from "react";
 import ThemeContext, { ThemeProvider } from './context/ThemeContext';
-import CityData from "./components/CityData"
+import { CityProvider } from './context/CityContext';
+import Container from "./components/Container"
 
 function App() {
   const client_id ="DUe97PZCFbicP26eRQYzD"
@@ -20,7 +21,10 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider>
-        <CityData/>
+        <CityProvider>
+          <Container/>
+              
+        </CityProvider>
       </ThemeProvider>
 
     </div>

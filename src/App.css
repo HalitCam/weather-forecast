@@ -1,9 +1,16 @@
 .App {
   text-align: center;
-  background-color: gray;
+  background-color: rgb(197, 197, 197);
+  height: 100vh;
+
 }
 
-
+.dropdownCity{
+  text-align: center;
+  background-color: rgb(184, 184, 233)  ;
+  width: 40%;
+  height: 10vh
+}
 
 
 
