@@ -16,7 +16,7 @@ function DropdownCity(){
     const {city , setCity} = useContext (CityContext)
     const formik = useFormik({
         initialValues : {
-            city : "",
+            city : "Berlin",
         },
         onSubmit : (values)=>{
             setCity(values.city)
