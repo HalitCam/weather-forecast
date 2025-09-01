@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ThemeContext, { ThemeProvider } from './context/ThemeContext';
 import { CityProvider } from './context/CityContext';
 import Container from "./components/Container"
-import {ForecastProvider} from './context/forecastContext';
+import {ForecastProvider} from './context/ForecastContext';
 
 
 function App() {

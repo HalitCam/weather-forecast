@@ -3,15 +3,17 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import CityContext from "../context/CityContext";
 import DropdownCity from "./DropdownCity";
-import ThemeContext from "../context/ForecastContext"
+import ForecastContext from "../context/ForecastContext"
 
 function CityApi() {
     const client_id = "DUe97PZCFbicP26eRQYzD"
     const client_secret = "QZGYJ5d8qql3yWZHBTbd5WHVzOGRzsy7SWQo6sfs"
 
-    const [forecast, setForecast] = useState(null)
+    const {forecast, setForecast} = useContext(ForecastContext)
 
     const {city} = useContext(CityContext)
+
+   
 
     
     useEffect(() => {
@@ -26,15 +28,7 @@ function CityApi() {
         <div>
            {city ? <h1 style={{color: "gray", fontFamily: 'Red/Black, sans-serif'}}>Das Wetter für {city}</h1> : null}
 
-           {
-                forecast.response[0].periods.map(day => {
-                    
-
-                })
-               
-
-           }
-
+     
            
 
         </div>
