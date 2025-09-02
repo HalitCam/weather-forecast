@@ -28,8 +28,9 @@ function CityApi() {
         <div>
            {city ? <h1 style={{color: "gray", fontFamily: 'Red/Black, sans-serif'}}>Das Wetter für {city}</h1> : null}
 
+           {forecast.response[0].periods.map((day , index) => <ul key={index}>{`${index+1} day => ${day.weather} -- 
+           Max Temp: ${day.maxTempC} -- Min Temp: ${day.minTempC}`}</ul>)}
      
-           
 
         </div>
     )
